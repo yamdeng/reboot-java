@@ -42,6 +42,11 @@ class SamsungTv extends Tv {
 
 }
 
+// 추상 메서드를 오버라이드 하지 않으면 추상 클래스로 선언해야 한다
+abstract class LGTv extends Tv {
+
+}
+
 // abstract class, method
 public class AbstractClass {
 
