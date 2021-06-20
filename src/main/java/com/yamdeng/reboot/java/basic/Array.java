@@ -64,14 +64,14 @@ public class Array {
         for(int index=0, maxLength=arr2.length; index<maxLength; index++) {
             System.out.println("arr2[" + index + "] : " + arr2[index]);
         }
-        System.out.println("arr2 : " + Arrays.toString(arr2));
+        System.out.println("arr2 : " + Arrays.toString(arr2)); // [1, 2, 3]
         int[] arr3 = new int[arr.length];
         System.arraycopy(arr, 0, arr3, 0, arr.length);
-        System.out.println("arr3 : " + Arrays.toString(arr3));
+        System.out.println("arr3 : " + Arrays.toString(arr3)); // [1, 2, 3, 4, 5]
 
         int[] arr4 ={3, 2, 1};
         Arrays.sort(arr4);
-        System.out.println("arr4 : " + Arrays.toString(arr4));
+        System.out.println("arr4 : " + Arrays.toString(arr4)); // [1, 2, 3]
     }
 
 }

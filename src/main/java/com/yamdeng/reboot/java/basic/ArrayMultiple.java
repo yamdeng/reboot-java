@@ -47,22 +47,22 @@ public class ArrayMultiple {
                 outerArr[innerIndex] = 10;
             }
         }
-        System.out.println("arr : " + Arrays.deepToString(arr));
+        System.out.println("arr : " + Arrays.deepToString(arr)); // [[10, 10], [10, 10]]
 
         int[][] arr2 = { {1,2,3,}, {4,5,6} };
-        System.out.println("arr2 : " + Arrays.deepToString(arr2));
+        System.out.println("arr2 : " + Arrays.deepToString(arr2)); // [[1, 2, 3], [4, 5, 6]]
     }
 
     public static void variableMultipleArray() {
         System.out.println("가변 다차원 배열");
         int[][] arr = new int[3][];
         for(int outerIndex=0, outerMaxIndex=arr.length; outerIndex<outerMaxIndex; outerIndex++){
-            arr[outerIndex] = new int[10];
+            arr[outerIndex] = new int[3];
             for(int innerIndex=0, innerMaxIndex=arr[outerIndex].length; innerIndex<innerMaxIndex; innerIndex++) {
-                arr[outerIndex][innerIndex] = 10;
+                arr[outerIndex][innerIndex] = 2;
             }
         }
-        System.out.println("arr : " + Arrays.deepToString(arr));
+        System.out.println("arr : " + Arrays.deepToString(arr)); // [[2, 2, 2], [2, 2, 2], [2, 2, 2]]
     }
 
 }
