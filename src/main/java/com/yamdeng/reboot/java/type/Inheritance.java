@@ -20,6 +20,10 @@ class Parent {
         return name;
     }
 
+    public void display() {
+        System.out.println("Parent display()");
+    }
+
     @Override
     public String toString() {
         return "Parent{" +
@@ -40,7 +44,7 @@ class Child extends Parent {
 
     Child(String name, int age) {
         super();
-        this.name = "Child";
+        this.name = name;
     }
 
     public void displayName() {
@@ -69,7 +73,6 @@ public class Inheritance {
         // 상속 기본
         basicInheritance();
         System.out.println();
-
 
         System.out.println("========== Inheritance End ==========");
 

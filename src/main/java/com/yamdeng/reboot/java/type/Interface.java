@@ -31,6 +31,9 @@ interface RollBack {
 
 class Remocon implements Execute, RollBack {
 
+    private int remoconType;
+    private String name;
+
     @Override
     public void executeDefaultMethod() {
         System.out.println("executeDefaultMethod() Remocon");
@@ -47,7 +50,13 @@ class Remocon implements Execute, RollBack {
         System.out.println("undo() Remocon");
     }
 
-
+    @Override
+    public String toString() {
+        return "Remocon{" +
+                "remoconType=" + remoconType +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
 
 // interface
