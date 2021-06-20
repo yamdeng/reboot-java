@@ -9,9 +9,11 @@ public class PolyMorphism {
 
         // 클래스 다형성
         classPolyMor();
+        System.out.println();
 
         // 인터페이스 다형성
         interfacePolyMor();
+        System.out.println();
         
         // 메서드 매개변수, 반환타입 다형성
         RollBack rb = methodParameterReturnPolyMor(new Child("Child test", 30));

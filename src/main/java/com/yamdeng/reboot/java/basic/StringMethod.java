@@ -61,6 +61,8 @@ public class StringMethod {
         // str1.concat(""); // 문자열 합치기
         // str1.replaceAll("", ""); // 문자열 교체(치환)
         // str1.trim(); // 공백 문자 제거
+        // String.valueOf // 기본 타입을 문자열로 변경
+        // String join // 구분자를 기준으로 문자 합치기
         String[] strArr = str1.split("");
         System.out.println("str1.split(\"\") : " + Arrays.toString(strArr)); // [h, e, l, l, o, w, !,  , w, e, l, c, o, m, e, !]
         String[] strArr2 = str1.split(" ");

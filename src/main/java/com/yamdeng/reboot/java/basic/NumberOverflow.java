@@ -25,7 +25,7 @@ public class NumberOverflow {
         overflow();
         System.out.println();
 
-        System.out.println("========== NumberTypeOperator End ==========");
+        System.out.println("========== NumberOverflow End ==========");
     }
 
     public static void overflow() {
