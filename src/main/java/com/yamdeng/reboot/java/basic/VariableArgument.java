@@ -18,9 +18,14 @@ public class VariableArgument {
 
         // 가변 변수(배열) : string
         variableArgumentTypeObject("안녕하세요", "hihi");
+        System.out.println();
 
         // 가변 변수(배열) : object
         variableArgumentTypeObject(new Integer(3), new Integer(4));
+        System.out.println();
+
+        // 가변 변수(배열) : 멀티
+        variableArgumentTypeMultiple("", 10, 20);
 
         System.out.println("========== VariableArgument End ==========");
     }
@@ -37,6 +42,11 @@ public class VariableArgument {
 
     public static void variableArgumentTypeObject(Object... arg) {
         System.out.println("가변 변수(배열) : object");
+        System.out.println("arg : " + Arrays.toString(arg));
+    }
+
+    public static void variableArgumentTypeMultiple(String str1, int... arg) {
+        System.out.println("가변 변수(배열) : 멀티");
         System.out.println("arg : " + Arrays.toString(arg));
     }
 
