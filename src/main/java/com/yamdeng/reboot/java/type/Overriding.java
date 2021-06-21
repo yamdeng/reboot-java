@@ -1,7 +1,5 @@
 package com.yamdeng.reboot.java.type;
 
-import java.io.IOException;
-
 class Parent2 {
 
     String id;

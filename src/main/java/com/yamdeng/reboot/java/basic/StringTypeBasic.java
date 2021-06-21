@@ -1,6 +1,5 @@
 package com.yamdeng.reboot.java.basic;
 
-
 // String 타입 기본
 public class StringTypeBasic {
 
