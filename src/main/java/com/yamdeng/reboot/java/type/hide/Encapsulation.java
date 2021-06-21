@@ -2,10 +2,6 @@ package com.yamdeng.reboot.java.type.hide;
 
 import com.yamdeng.reboot.java.type.hide.vo.CommandVo;
 
-class CustomCommandVo extends CommandVo {
-
-}
-
 public class Encapsulation {
 
     public static void main(String[] args) {
