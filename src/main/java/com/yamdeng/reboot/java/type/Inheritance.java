@@ -8,13 +8,13 @@ public class Inheritance {
         System.out.println();
         
         // 상속 기본
-        basicInheritance();
+        inheritance();
         System.out.println();
 
         System.out.println("========== Inheritance End ==========");
     }
 
-    public static void basicInheritance() {
+    public static void inheritance() {
         System.out.println("상속 기본");
         Parent parent1 = new Parent();
         Child child1 = new Child();

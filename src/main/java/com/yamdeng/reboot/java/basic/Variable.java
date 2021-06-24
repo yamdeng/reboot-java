@@ -8,13 +8,13 @@ public class Variable {
         System.out.println();
 
         // 변수 할당 및 swap
-        basicVariable();
+        variable();
         System.out.println();
 
         System.out.println("========== Variable End ==========");
     }
 
-    public static void basicVariable() {
+    public static void variable() {
         System.out.println("변수 할당 및 swap");
         int inta = 10;
         int intb = 20;

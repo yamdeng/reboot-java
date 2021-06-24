@@ -53,14 +53,15 @@ public class AbstractClass {
     public static void main(String[] args) {
         System.out.println("========== abstract class, method ==========");
         System.out.println();
-
-        basicAbstract();
+        
+        // 추상 클래스 / 메서드
+        abstractClass();
 
         System.out.println("========== AbstractClass End ==========");
     }
 
-    public static void basicAbstract() {
-        System.out.println("abstract class, method");
+    public static void abstractClass() {
+        System.out.println("추상 클래스 / 메서드");
         // Tv tv = new Tv(); // 추상 클래스는 객체를 생성할 수 없음 // 에러
         Tv tv = new SamsungTv();
         tv.display();

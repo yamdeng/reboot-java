@@ -36,14 +36,14 @@ public class TryWithResource {
 
         // try-with-resource 이전 방식
         try {
-//            before();
+            before();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // try-with-resource
         try {
-//            tryWithResource();
+            tryWithResource();
         } catch (Exception e) {
             e.printStackTrace();
         }
