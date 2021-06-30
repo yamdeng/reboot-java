@@ -1,6 +1,6 @@
 package com.yamdeng.reboot.java.type;
 
-interface Execute {
+public interface Execute {
 
     public static final String UUID = "Excute-ID";
 
@@ -14,6 +14,12 @@ interface Execute {
     }
 
     default void executeDefaultMethod() {
+        System.out.println("executeDefaultMethod()");
+        // 호출 가능함
+        execute();
+    }
+
+    default void executeDefaultMethod2() {
         System.out.println("executeDefaultMethod()");
         // 호출 가능함
         execute();

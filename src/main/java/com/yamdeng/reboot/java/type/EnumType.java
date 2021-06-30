@@ -1,8 +1,7 @@
 package com.yamdeng.reboot.java.type;
 
 import com.yamdeng.reboot.java.type.hide.DateField;
-
-import java.sql.Date;
+import com.yamdeng.reboot.java.type.hide.DateFieldComparator;
 
 enum Direction {
 
@@ -25,7 +24,18 @@ public class EnumType {
         constructorAndMethod();
         System.out.println();
 
+        // enum type 정렬
+        customSortToComparator();
+        System.out.println();
+
         System.out.println("========== EnumType End ==========");
+    }
+
+    private static void customSortToComparator() {
+        DateField day = DateField.DAY;
+        DateField month = DateField.MONTH;
+        DateFieldComparator comparator = new DateFieldComparator();
+        System.out.println("compare result : " + comparator.compare(day, month));
     }
 
     private static void basicEnum() {

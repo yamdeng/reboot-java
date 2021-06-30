@@ -1,9 +1,32 @@
 package com.yamdeng.reboot.java.basic;
 
+import com.yamdeng.reboot.java.collection.ListFunction;
+
 import java.util.Arrays;
 
 // 배열 : []
 public class Array {
+
+    static class ArrayVo {
+        String name;
+        String key;
+        String value;
+
+        public ArrayVo(String name, String key, String value) {
+            this.name = name;
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "ArrayVo{" +
+                    "name='" + name + '\'' +
+                    ", key='" + key + '\'' +
+                    ", value='" + value + '\'' +
+                    '}';
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         System.out.println("========== 배열 : [] ==========");
@@ -16,6 +39,8 @@ public class Array {
         // 배열 복사
         copyArray();
         System.out.println();
+
+        // Arrays.copyOf
 
         System.out.println("========== Array End ==========");
     }
@@ -72,6 +97,23 @@ public class Array {
         int[] arr4 ={3, 2, 1};
         Arrays.sort(arr4);
         System.out.println("arr4 : " + Arrays.toString(arr4)); // [1, 2, 3]
+
+        Integer[] arr5 = {40, 10, 20, 30};
+        Arrays.sort(arr5);
+        System.out.println("arr5 : " + Arrays.toString(arr5)); // [10, 20, 30, 40]
+        Arrays.sort(arr5, (before, after) -> after - before);
+        System.out.println("arr5 : " + Arrays.toString(arr5)); // [40, 30, 20, 10]
+
+        ArrayVo vo1 = new ArrayVo("list1", "key1", "value1");
+        ArrayVo vo2 = new ArrayVo("list2", "key2", "value2");
+        ArrayVo vo3 = new ArrayVo("list3", "key3", "value3");
+        ArrayVo[] voArr = {vo1, vo2, vo3};
+
+        // 배열은 공변이므로 clone 메서드 사용시 "캐스팅" 연산자를 사용할 필요가 없음
+        ArrayVo[] voArrClone = voArr.clone();
+        System.out.println("voArr : " + Arrays.toString(voArr));
+        voArr[0] = new ArrayVo("list1", "key1", "value1");
+        System.out.println("voArr[0] == voArrClone[0] : " + (voArr[0] == voArrClone[0]));
     }
 
 }

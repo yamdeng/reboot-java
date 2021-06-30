@@ -30,6 +30,21 @@ class Remocon implements Execute, RollBack {
     }
 }
 
+class Remocon2 implements Execute2 {
+
+    @Override
+    public void execute() {}
+
+    @Override
+    public void execute2() {}
+
+    @Override
+    public int compareTo(String str) {
+        return 0;
+    }
+
+}
+
 // interface
 public class Interface {
 
@@ -41,9 +56,13 @@ public class Interface {
         basicInterface();
         System.out.println();
 
+        // 인터페이스 상속
+
+
         System.out.println("========== Interface End ==========");
     }
 
+    // Execute, RollBack
     public static void basicInterface() {
         System.out.println("인터페이스");
         Execute ex = new Remocon();
@@ -53,5 +72,7 @@ public class Interface {
         rb.undo();
         rb.rollBackDefaultMethod();
         Execute.staticMethod();
+        System.out.println("ex : " + ex);
+        System.out.println("rb : " + rb);
     }
 }

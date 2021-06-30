@@ -1,6 +1,6 @@
 package com.yamdeng.reboot.java.type;
 
-interface RollBack {
+public interface RollBack {
 
     default void rollBackDefaultMethod() {
         System.out.println("rollBackDefaultMethod()");
