@@ -5,12 +5,20 @@ import java.util.Objects;
 
 public class BoardVo {
 
-    private String title;
+    private String title = "title";
     private String content;
     private LocalDate createdDate;
     private LocalDate lastModifiedDate;
     private String ownerId;
     private Integer seq;
+
+    public BoardVo() {
+
+    }
+
+    public BoardVo(String title) {
+        this.title = title;
+    }
 
     public String getTitle() {
         return title;
