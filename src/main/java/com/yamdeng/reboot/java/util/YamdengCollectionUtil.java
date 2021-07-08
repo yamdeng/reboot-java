@@ -1,5 +1,6 @@
 package com.yamdeng.reboot.java.util;
 
+import com.yamdeng.reboot.java.vo.BoardCategory;
 import com.yamdeng.reboot.java.vo.BoardVo;
 
 import java.time.LocalDate;
@@ -102,6 +103,39 @@ public class YamdengCollectionUtil {
             boardVo.setTitle("제목" + (index+1));
             boardVo.setContent("내용" + (index+1));
             boardVo.setCreatedDate(LocalDate.now());
+            boardVoCList.add(boardVo);
+        }
+    }
+
+    public static void initBoardVoListArray(BoardVo[] boardArray) {
+        Random random = new Random();
+        List<String> titleList = List.of("자바", "파이썬", "루비", "C#", "C++", "C", "PHP", "코틀린", "타입스크립트", "Oracle", "리눅스", "MySql", "JPA", "MyBatis", "Spring", "스칼라");
+        int maxIndex = boardArray.length;
+        for(int index=0; index<maxIndex; index++) {
+            int categoryOrderNo = random.nextInt(6) + 1;
+            String title = titleList.get(random.nextInt(titleList.size()));
+            String content = title + "_내용";
+            Integer seq = index;
+            BoardCategory boardCategory = BoardCategory.getBoardCategory(categoryOrderNo);
+            BoardVo boardVo = new BoardVo(title, content, seq, boardCategory);
+            boardArray[index] = boardVo;
+        }
+    }
+
+    public static void initBoardVoListStream(Collection<BoardVo> boardVoCList) {
+        if(boardVoCList.size() > 0) {
+            boardVoCList.clear();
+        }
+        Random random = new Random();
+        List<String> titleList = List.of("자바", "파이썬", "루비", "C#", "C++", "C", "PHP", "코틀린", "타입스크립트", "Oracle", "리눅스", "MySql", "JPA", "MyBatis", "Spring", "스칼라");
+        int maxIndex = 300;
+        for(int index=0; index<maxIndex; index++) {
+            int categoryOrderNo = random.nextInt(6) + 1;
+            String title = titleList.get(random.nextInt(titleList.size()));
+            String content = title + "_내용";
+            Integer seq = index;
+            BoardCategory boardCategory = BoardCategory.getBoardCategory(categoryOrderNo);
+            BoardVo boardVo = new BoardVo(title, content, seq, boardCategory);
             boardVoCList.add(boardVo);
         }
     }

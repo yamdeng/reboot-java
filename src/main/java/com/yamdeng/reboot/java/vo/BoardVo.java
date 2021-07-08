@@ -3,7 +3,7 @@ package com.yamdeng.reboot.java.vo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class BoardVo {
+public class BoardVo implements Comparable<BoardVo> {
 
     private String title = "title";
     private String content;
@@ -11,6 +11,32 @@ public class BoardVo {
     private LocalDate lastModifiedDate;
     private String ownerId;
     private Integer seq;
+    private BoardCategory boardCategory;
+
+
+    public BoardVo(String title, String content, Integer seq, BoardCategory boardCategory) {
+        this.title = title;
+        this.content = content;
+        this.seq = seq;
+        this.createdDate = LocalDate.now();
+        this.lastModifiedDate = LocalDate.now();
+        this.boardCategory = boardCategory;
+    }
+
+    @Override
+    public int compareTo(BoardVo o) {
+        if(o != null) {
+            if(o.seq.intValue() == this.seq.intValue()) {
+                return 0;
+            } else if(o.seq.intValue() > this.seq.intValue()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
+    }
 
     public BoardVo() {
 
