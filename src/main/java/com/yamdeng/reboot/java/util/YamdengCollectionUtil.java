@@ -1,5 +1,8 @@
 package com.yamdeng.reboot.java.util;
 
+import com.yamdeng.reboot.java.vo.BoardVo;
+
+import java.time.LocalDate;
 import java.util.*;
 
 public class YamdengCollectionUtil {
@@ -87,6 +90,20 @@ public class YamdengCollectionUtil {
         integerList.add(50);
         integerList.add(10);
         integerList.add(0);
+    }
+
+    public static void initBoardVoList(Collection<BoardVo> boardVoCList) {
+        if(boardVoCList.size() > 0) {
+            boardVoCList.clear();
+        }
+        int maxIndex = 10;
+        for(int index=0; index<maxIndex; index++) {
+            BoardVo boardVo = new BoardVo();
+            boardVo.setTitle("제목" + (index+1));
+            boardVo.setContent("내용" + (index+1));
+            boardVo.setCreatedDate(LocalDate.now());
+            boardVoCList.add(boardVo);
+        }
     }
 
 }
