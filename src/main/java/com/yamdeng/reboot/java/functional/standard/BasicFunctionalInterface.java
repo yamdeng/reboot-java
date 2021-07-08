@@ -163,6 +163,13 @@ public class BasicFunctionalInterface {
         // 제네릭 메서드
         functionFunctionCall(boardVo -> boardVo.toString(), boardList);
         System.out.println("제네릭 메서드 boardToStringList : " + boardToStringList);
+
+        // Function.identity()
+        String self = Function.<String>identity().apply("BBB");
+        System.out.println("self : " + self);
+
+        Function<String, String> identityFunction = Function.identity();
+        System.out.println("identityFunction.apply(\"CCC\") : " + identityFunction.apply("CCC"));
     }
 
     private static void typeFixFunctionInterface() {
