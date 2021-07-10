@@ -27,7 +27,7 @@ public class StreamBasic {
         System.out.println("========== StreamBasic End ==========");
     }
 
-    // filter, sorted, map, forEach, collect
+    // filter, sorted, map, forEach, collect, count
     private static void listToStream() {
         System.out.println("list ---> 스트림");
         List<BoardVo> boardList = new ArrayList<>();
@@ -42,6 +42,10 @@ public class StreamBasic {
         boardTitleList.stream().forEach(title -> System.out.println("title : " + title));
         List<String> listApplyTitleList = boardTitleList.stream().limit(3).collect(Collectors.toList());
         System.out.println("listApplyTitleList : " + listApplyTitleList);
+
+        // count
+        long listApplyTitleListCount = listApplyTitleList.stream().count();
+        System.out.println("listApplyTitleListCount : " + listApplyTitleListCount);
     }
 
     private static void arrayToStream() {

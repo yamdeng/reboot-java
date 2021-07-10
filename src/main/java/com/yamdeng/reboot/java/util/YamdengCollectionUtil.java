@@ -97,11 +97,13 @@ public class YamdengCollectionUtil {
         if(boardVoCList.size() > 0) {
             boardVoCList.clear();
         }
-        int maxIndex = 10;
+        List<String> titleList = List.of("자바", "파이썬", "루비", "C#", "C++", "C", "PHP", "코틀린", "타입스크립트", "Oracle", "리눅스", "MySql", "JPA", "MyBatis", "Spring", "스칼라");
+        int maxIndex = titleList.size();
         for(int index=0; index<maxIndex; index++) {
             BoardVo boardVo = new BoardVo();
-            boardVo.setTitle("제목" + (index+1));
-            boardVo.setContent("내용" + (index+1));
+            String title = titleList.get(index);
+            boardVo.setTitle(title);
+            boardVo.setContent(title + "_내용");
             boardVo.setCreatedDate(LocalDate.now());
             boardVoCList.add(boardVo);
         }
@@ -128,14 +130,18 @@ public class YamdengCollectionUtil {
         }
         Random random = new Random();
         List<String> titleList = List.of("자바", "파이썬", "루비", "C#", "C++", "C", "PHP", "코틀린", "타입스크립트", "Oracle", "리눅스", "MySql", "JPA", "MyBatis", "Spring", "스칼라");
+        List<Integer> priceList = List.of(1000, 2000, 1500, 3000, 7000, 10000, 3500, 2500, 500, 12000, 30000, 2700, 3000, 2100, 1100, 700);
         int maxIndex = 300;
         for(int index=0; index<maxIndex; index++) {
             int categoryOrderNo = random.nextInt(6) + 1;
-            String title = titleList.get(random.nextInt(titleList.size()));
+            int titleListIndex = random.nextInt(titleList.size());
+            String title = titleList.get(titleListIndex);
+            int price = priceList.get(titleListIndex);
             String content = title + "_내용";
             Integer seq = index;
             BoardCategory boardCategory = BoardCategory.getBoardCategory(categoryOrderNo);
             BoardVo boardVo = new BoardVo(title, content, seq, boardCategory);
+            boardVo.setPrice(price);
             boardVoCList.add(boardVo);
         }
     }

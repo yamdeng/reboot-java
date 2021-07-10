@@ -12,6 +12,7 @@ public class BoardVo implements Comparable<BoardVo> {
     private String ownerId;
     private Integer seq;
     private BoardCategory boardCategory;
+    private Integer price;
 
 
     public BoardVo(String title, String content, Integer seq, BoardCategory boardCategory) {
@@ -94,6 +95,14 @@ public class BoardVo implements Comparable<BoardVo> {
         this.seq = seq;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,11 +120,9 @@ public class BoardVo implements Comparable<BoardVo> {
     public String toString() {
         return "BoardVo{" +
                 "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", createdDate=" + createdDate +
-                ", lastModifiedDate=" + lastModifiedDate +
-                ", ownerId='" + ownerId + '\'' +
                 ", seq=" + seq +
+                ", boardCategory=" + boardCategory +
+                ", price=" + price +
                 '}';
     }
 }
