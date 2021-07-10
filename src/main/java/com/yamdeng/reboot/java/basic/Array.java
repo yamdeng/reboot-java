@@ -1,7 +1,5 @@
 package com.yamdeng.reboot.java.basic;
 
-import com.yamdeng.reboot.java.collection.ListFunction;
-
 import java.util.Arrays;
 
 // 배열 : []

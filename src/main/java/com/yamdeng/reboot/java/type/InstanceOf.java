@@ -22,6 +22,10 @@ public class InstanceOf {
         System.out.println("parent instanceof Parent : " +(parent instanceof Parent)); // true
         System.out.println("parent2 instanceof Child : " +(parent2 instanceof Child)); // true
         System.out.println("parent3 instanceof Parent : " +(parent3 instanceof Child)); // false
+
+        Parent parent4 = null;
+        // instanceof는 NullPointerException 예외를 발생시키지 않는다
+        System.out.println("parent4 instanceof Parent : " +(parent4 instanceof Parent)); // false
     }
 
 }

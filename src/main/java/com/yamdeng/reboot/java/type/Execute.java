@@ -2,6 +2,18 @@ package com.yamdeng.reboot.java.type;
 
 public interface Execute {
 
+    public static class StaticInnerClass {
+
+        StaticInnerClass() {
+
+        }
+
+    }
+
+    class StaticInnerClass2 {
+
+    }
+
     public static final String UUID = "Excute-ID";
 
     static void staticMethod() {

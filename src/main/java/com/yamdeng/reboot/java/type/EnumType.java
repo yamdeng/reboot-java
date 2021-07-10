@@ -3,14 +3,34 @@ package com.yamdeng.reboot.java.type;
 import com.yamdeng.reboot.java.type.hide.DateField;
 import com.yamdeng.reboot.java.type.hide.DateFieldComparator;
 
-enum Direction {
+abstract  class AbstractTest {
 
-    EAST, WEST, NORTH, SOUTH
+}
 
+enum Direction implements Execute {
+
+    EAST, WEST, NORTH, SOUTH;
+
+    // enum type 내부에 enum type 정의 가능하다
+    enum DirectionInner {
+
+    }
+
+    // enum 타입도 인터페이스 구현이 가능하다다
+   @Override
+    public void execute() {
+
+    }
 }
 
 // Enum Type
 public class EnumType {
+
+    // 내부 enum 정의 가능하고 정적 내부 enum만 가능하다
+    private static enum InnerEnum {
+    }
+    private enum InnerEnum2 {
+    }
 
     public static void main(String[] args) throws Exception {
         System.out.println("========== Enum Type ==========");
@@ -71,6 +91,7 @@ public class EnumType {
         Direction[] directionArray = Direction.values();
         for (Direction direction : directionArray) {
             System.out.println("direction : " + direction.name());
+            Class<?> cls = direction.getDeclaringClass();
         }
 
         // switch 문에 enum 타입을 전달
@@ -84,6 +105,7 @@ public class EnumType {
             default:
                 break;
         }
+
     }
 
     private static void constructorAndMethod() {
