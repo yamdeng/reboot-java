@@ -1,6 +1,7 @@
 package com.yamdeng.reboot.java.util;
 
 import com.yamdeng.reboot.java.vo.BoardCategory;
+import com.yamdeng.reboot.java.vo.BoardPublish;
 import com.yamdeng.reboot.java.vo.BoardVo;
 
 import java.time.LocalDate;
@@ -142,6 +143,13 @@ public class YamdengCollectionUtil {
             BoardCategory boardCategory = BoardCategory.getBoardCategory(categoryOrderNo);
             BoardVo boardVo = new BoardVo(title, content, seq, boardCategory);
             boardVo.setPrice(price);
+            if(index % 2 == 0 ){
+                boardVo.setNew(false);
+                boardVo.setBoardPublish(BoardPublish.MAJOR);
+            }else {
+                boardVo.setNew(true);
+                boardVo.setBoardPublish(BoardPublish.MINOR);
+            }
             boardVoCList.add(boardVo);
         }
     }

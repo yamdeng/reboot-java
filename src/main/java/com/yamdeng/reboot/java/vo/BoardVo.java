@@ -13,7 +13,8 @@ public class BoardVo implements Comparable<BoardVo> {
     private Integer seq;
     private BoardCategory boardCategory;
     private Integer price;
-
+    private Boolean isNew;
+    private BoardPublish boardPublish;
 
     public BoardVo(String title, String content, Integer seq, BoardCategory boardCategory) {
         this.title = title;
@@ -22,6 +23,17 @@ public class BoardVo implements Comparable<BoardVo> {
         this.createdDate = LocalDate.now();
         this.lastModifiedDate = LocalDate.now();
         this.boardCategory = boardCategory;
+    }
+
+    public BoardVo(String title, String content, Integer seq, Boolean isNew, BoardCategory boardCategory, BoardPublish boardPublish) {
+        this.title = title;
+        this.content = content;
+        this.seq = seq;
+        this.createdDate = LocalDate.now();
+        this.lastModifiedDate = LocalDate.now();
+        this.boardCategory = boardCategory;
+        this.isNew = isNew;
+        this.boardPublish = boardPublish;
     }
 
     @Override
@@ -103,6 +115,30 @@ public class BoardVo implements Comparable<BoardVo> {
         this.price = price;
     }
 
+    public BoardCategory getBoardCategory() {
+        return boardCategory;
+    }
+
+    public void setBoardCategory(BoardCategory boardCategory) {
+        this.boardCategory = boardCategory;
+    }
+
+    public Boolean getNew() {
+        return isNew;
+    }
+
+    public void setNew(Boolean aNew) {
+        isNew = aNew;
+    }
+
+    public BoardPublish getBoardPublish() {
+        return boardPublish;
+    }
+
+    public void setBoardPublish(BoardPublish boardPublish) {
+        this.boardPublish = boardPublish;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -120,9 +156,10 @@ public class BoardVo implements Comparable<BoardVo> {
     public String toString() {
         return "BoardVo{" +
                 "title='" + title + '\'' +
-                ", seq=" + seq +
+                ", content='" + content + '\'' +
                 ", boardCategory=" + boardCategory +
-                ", price=" + price +
+                ", isNew=" + isNew +
+                ", boardPublish=" + boardPublish +
                 '}';
     }
 }
