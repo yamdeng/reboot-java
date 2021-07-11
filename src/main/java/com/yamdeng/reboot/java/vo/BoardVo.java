@@ -160,6 +160,7 @@ public class BoardVo implements Comparable<BoardVo> {
                 ", boardCategory=" + boardCategory +
                 ", isNew=" + isNew +
                 ", boardPublish=" + boardPublish +
+                ", price=" + price +
                 '}';
     }
 }

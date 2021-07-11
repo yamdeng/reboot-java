@@ -6,6 +6,7 @@ import com.yamdeng.reboot.java.vo.BoardVo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import static java.util.Comparator.comparing;
 
@@ -24,10 +25,14 @@ public class StreamBasic {
         arrayToStream();
         System.out.println();
 
+        // 스트림 중간에 값 확인 : peek
+        peek();
+        System.out.println();
+
         System.out.println("========== StreamBasic End ==========");
     }
 
-    // filter, sorted, map, forEach, collect, count
+    // filter, sorted, map, forEach, collect, count, peek
     private static void listToStream() {
         System.out.println("list ---> 스트림");
         List<BoardVo> boardList = new ArrayList<>();
@@ -57,6 +62,17 @@ public class StreamBasic {
         System.out.println("before size : " + boardVoArray.length);
         Object[] resultArray = Arrays.stream(boardVoArray).filter(board -> board.getTitle().equals("자바")).toArray();
         System.out.println("after size : " + resultArray.length);
+    }
+
+    private static void peek() {
+        System.out.println("스트림 중간에 값 확인 : peek");
+        List<BoardVo> boardList = new ArrayList<>();
+        YamdengCollectionUtil.initBoardVoListStream(boardList);
+
+        // peek 메서드는 다른 스레드에서 실행되므로 언제 실행될지 알 수 없음
+        boardList.stream().limit(10).peek(System.out::println).filter(b -> b.getPrice() > 5000).forEach(b -> {
+            System.out.println("after b : " + b);
+        });
     }
 
 }

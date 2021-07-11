@@ -154,4 +154,11 @@ public class YamdengCollectionUtil {
         }
     }
 
+    public static void initStringMap(Map<String, String> map) {
+        int maxIndex = 20;
+        for (int index=0; index<maxIndex; index++) {
+            map.put("key" + (index+1), "value" +(index+1));
+        }
+    }
+
 }
