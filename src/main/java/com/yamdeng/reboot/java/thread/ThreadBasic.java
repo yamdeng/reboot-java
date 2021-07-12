@@ -1,5 +1,8 @@
 package com.yamdeng.reboot.java.thread;
 
+import java.util.Iterator;
+import java.util.Map;
+
 // 쓰레드 기본 : 실행 방법 2가지, 예외 발생
 public class ThreadBasic {
 
@@ -50,6 +53,32 @@ public class ThreadBasic {
 
     }
 
+    private static class RunnableAllStackTrace implements Runnable {
+
+        @Override
+        public void run() {
+            System.out.println("RunnableAllStackTrace run call : " + Thread.currentThread().getName());
+            Thread currentThread = Thread.currentThread();
+            StackTraceElement[] stackTraceArray = currentThread.getStackTrace();
+            for(StackTraceElement stackTraceElement : stackTraceArray) {
+                System.out.println("stackTraceElement.toString() : " + stackTraceElement.toString());
+            }
+            Map<Thread, StackTraceElement[]> map = Thread.getAllStackTraces();
+            Iterator<Thread> it = map.keySet().iterator();
+
+            while(it.hasNext()) {
+                Thread thread = it.next();
+                StackTraceElement[] ste = (StackTraceElement[])(map.get(thread));
+                for(StackTraceElement stackTraceElement : ste) {
+                    System.out.println("stackTraceElement.toString() iterator : " + stackTraceElement.toString());
+                }
+                System.out.println();
+            }
+
+        }
+
+    }
+
     private static class RunnableTimeCheck implements Runnable {
         @Override
         public void run() {
@@ -71,15 +100,20 @@ public class ThreadBasic {
         System.out.println();
 
         // 쓰레드 기본
-//        basicThread();
+        basicThread();
         System.out.println();
 
         // 예외 발생
         exceptionThread();
         System.out.println();
 
+        // getAllStackTraces
+        getAllStackTracesCheck();
+        System.out.println();
+
+
         // 쓰레드 시간 체크
-//        threadTimeCheck();
+        threadTimeCheck();
         System.out.println();
 
         System.out.println("========== ThreadBasic End ==========");
@@ -144,6 +178,28 @@ public class ThreadBasic {
         Runnable runnable = new RunnableTimeCheck();
         Thread runnableThread = new Thread(runnable);
         runnableThread.start();
+    }
+
+    private static void getAllStackTracesCheck() {
+        System.out.println("getAllStackTraces()");
+
+        Runnable runnable = new ThreadBasic.RunnableAllStackTrace();
+        Thread runnableThread = new Thread(runnable);
+        runnableThread.start();
+
+        System.out.println("display : Thread.getAllStackTraces()");
+
+        Map<Thread, StackTraceElement[]> map = Thread.getAllStackTraces();
+        Iterator<Thread> it = map.keySet().iterator();
+
+        while(it.hasNext()) {
+            Thread thread = it.next();
+            StackTraceElement[] ste = (StackTraceElement[])(map.get(thread));
+            for(StackTraceElement stackTraceElement : ste) {
+                System.out.println("stackTraceElement.toString() iterator(display) : " + stackTraceElement.toString());
+            }
+            System.out.println();
+        }
     }
 
 }

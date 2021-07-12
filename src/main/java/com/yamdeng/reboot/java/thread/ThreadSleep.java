@@ -76,6 +76,13 @@ public class ThreadSleep {
         Runnable exceptionRunnable = new ThreadSleep.RunnableException();
         Thread runnableExceptionThread = new Thread(exceptionRunnable);
         runnableExceptionThread.start();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        runnableThread.stop();
     }
 
 }
