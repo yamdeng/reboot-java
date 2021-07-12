@@ -49,7 +49,7 @@ public class ThreadDaemon {
         damonThread();
         System.out.println();
 
-        System.out.println("========== ThreadDeamon End ==========");
+        System.out.println("========== ThreadDaemon End ==========");
     }
 
     private static void damonThread() {
