@@ -114,6 +114,11 @@ public class ThreadBasic {
 
         Runnable runnable2 = new RunnableException();
         Thread runnableThread2 = new Thread(runnable2);
+
+        // 쓰레드의 외부에서 예외처리하는 방법
+        runnableThread2.setUncaughtExceptionHandler((thread, exception) -> {
+            exception.printStackTrace();
+        });
         try {
             runnableThread2.start();
 //            runnableThread2.run();
