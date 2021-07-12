@@ -111,6 +111,9 @@ public class ThreadBasic {
         getAllStackTracesCheck();
         System.out.println();
 
+        // 같은 Runnable 객체를 동시에 start
+        sameRunnableStart();
+        System.out.println();
 
         // 쓰레드 시간 체크
         threadTimeCheck();
@@ -178,6 +181,16 @@ public class ThreadBasic {
         Runnable runnable = new RunnableTimeCheck();
         Thread runnableThread = new Thread(runnable);
         runnableThread.start();
+    }
+
+    private static void sameRunnableStart() {
+        System.out.println("같은 Runnable 객체를 동시에 start");
+
+        Runnable runnableSpec = new RunnableSpec();
+        Thread runnableThread = new Thread(runnableSpec);
+        Thread runnableThread2 = new Thread(runnableSpec);
+        runnableThread.start();
+        runnableThread2.start();
     }
 
     private static void getAllStackTracesCheck() {

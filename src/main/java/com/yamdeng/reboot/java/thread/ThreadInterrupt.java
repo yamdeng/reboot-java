@@ -1,6 +1,6 @@
 package com.yamdeng.reboot.java.thread;
 
-// 쓰레드 interrupt : Thread.sleep 시에 interrupt() 메서드 실행시 InterruptedException 예외 발생함
+// 쓰레드 interrupt : Thread.sleep 시에 interrupt() 메서드 실행시 InterruptedException 예외 발생함. interrupt 는 잠자는 쓰레드를 깨우는 역할도 함
 public class ThreadInterrupt {
 
     private static class Runnable1 implements Runnable {
