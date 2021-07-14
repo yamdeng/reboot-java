@@ -45,9 +45,9 @@ public class ObjectNotify {
                     if(currentThreadName.equals(lastThreadName)) {
                         // 현재 쓰레드와 바로 직전 쓰레드가 같으면 wait를 해서 다른 스레드에게 호출할 수 있는 기회를 줌
                         notifyAll();
-                        wait();
-                    } else if(intValue >= 30) {
-                        notifyAll();
+                        if(intValue < 29) {
+                            wait();
+                        }
                     }
                 }
             } catch (InterruptedException e) {
@@ -66,7 +66,6 @@ public class ObjectNotify {
         System.out.println();
 
         System.out.println("========== ObjectNotify End ==========");
-
     }
 
     private static void objectNotifyMethod() {
