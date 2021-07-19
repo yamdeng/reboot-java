@@ -56,6 +56,12 @@ public class Printf {
         System.out.printf("double1 %f, %e, %E, %s", double1, double1, double1, double1); // 100.456000, 1.004560e+02, 1.004560E+02, 100.456
         System.out.println();
         System.out.printf("string1 %s", string1); // hihi
+        System.out.println();
+        Object obj = new Object();
+        System.out.printf("object %s", obj); // 오류 X
+        System.out.println();
+        System.out.printf("object %d", obj); // 오류 O
+
     }
 
 }

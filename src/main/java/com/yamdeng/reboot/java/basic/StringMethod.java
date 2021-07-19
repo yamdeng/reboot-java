@@ -18,7 +18,30 @@ public class StringMethod {
         stringTokenizer();
         System.out.println();
 
+        // string to byte
+        stringToByte();
+        System.out.println();
+
         System.out.println("========== StringMethod End ==========");
+    }
+
+    private static void stringToByte() {
+        System.out.println("string to byte");
+        String stss="ㄱㄴㄷㄹ가나다라";
+        byte[] byteStr=stss.getBytes();
+
+        for(int i=0;i<byteStr.length;i++){
+            int num=byteStr[i];
+            System.out.println(Integer.toBinaryString(num));
+        }
+        System.out.println();
+        for(int i=0;i<stss.length();i++){
+            int num=stss.charAt(i);
+            System.out.print(num+":");
+            System.out.print(Integer.toBinaryString(num)+" :");
+            System.out.println((char)num);
+        }
+        System.out.println();
     }
 
     public static void stringMethod() {
@@ -52,6 +75,11 @@ public class StringMethod {
         char[] str1CharArray = str1.toCharArray();
         System.out.println("str1CharArray : " + Arrays.toString(str1CharArray)); // [h, e, l, l, o, w, !,  , w, e, l, c, o, m, e, !]
 
+        String[] strArr = str1.split("");
+        System.out.println("str1.split(\"\") : " + Arrays.toString(strArr)); // [h, e, l, l, o, w, !,  , w, e, l, c, o, m, e, !]
+        String[] strArr2 = str1.split(" ");
+        System.out.println("str1.split(\" \") : " + Arrays.toString(strArr2)); // [hellow!, welcome!]
+
         // byte[]로 변환한기
         // byte[] byteArr = str1.getBytes();
         // str1.toLowerCase(); // 소문자로 변경
@@ -63,10 +91,6 @@ public class StringMethod {
         // str1.trim(); // 공백 문자 제거
         // String.valueOf // 기본 타입을 문자열로 변경
         // String join // 구분자를 기준으로 문자 합치기
-        String[] strArr = str1.split("");
-        System.out.println("str1.split(\"\") : " + Arrays.toString(strArr)); // [h, e, l, l, o, w, !,  , w, e, l, c, o, m, e, !]
-        String[] strArr2 = str1.split(" ");
-        System.out.println("str1.split(\" \") : " + Arrays.toString(strArr2)); // [hellow!, welcome!]
     }
 
     public static void stringTokenizer() {

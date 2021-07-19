@@ -61,6 +61,10 @@ public class BasicType {
         intBottomTypeOperator();
         System.out.println();
 
+        // 10진수를 2, 8, 16 진법 문자열로 변환
+        toBinaryString();
+        System.out.println();
+
         System.out.println("========== BasicType End ==========");
     }
 
@@ -161,5 +165,13 @@ public class BasicType {
         float float3 = 10.f + 20.f;
     }
 
+    private static void toBinaryString() {
+        System.out.println("10진수를 2, 8, 16 진법 문자열로 변환");
+        int intValue = 17;
+        System.out.println("Integer.toBinaryString(intValue) : " + Integer.toBinaryString(intValue));
+        System.out.println("Integer.toOctalString(intValue) : " + Integer.toOctalString(intValue));
+        System.out.println("Integer.toHexString(intValue) : " + Integer.toHexString(intValue));
+        System.out.println("Double.toHexString(intValue) : " + Integer.toHexString(intValue));
+    }
 
 }
